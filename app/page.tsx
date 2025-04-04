@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { UserButton } from '@clerk/nextjs'
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
             <Button variant="link">链接按钮</Button>
           </div>
         </div>
-
+        <UserButton />
         <Card>
           <CardHeader>
             <CardTitle>卡片标题</CardTitle>

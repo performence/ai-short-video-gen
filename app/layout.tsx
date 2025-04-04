@@ -1,6 +1,8 @@
+import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
-import { PT_Sans } from 'next/font/google'
+import { Nunito, PT_Sans } from 'next/font/google'
+import Provider from './provider'
+
 import './globals.css'
 
 const nunito = Nunito({
@@ -25,11 +27,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${nunito.variable} ${ptSans.variable} antialiased relative`}>
-        <div className="texture" />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${nunito.variable} ${ptSans.variable} antialiased relative`}>
+          <div className="texture" />
+          <Provider>{children}</Provider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
